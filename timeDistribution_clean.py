@@ -13,7 +13,7 @@ def main():
     time = []
     for index, row in trips.iterrows():
         id = row['api_transfer_id']
-        if id is None:
+        if id is np.NaN:
             break
         else:
             id = int(id)
@@ -24,7 +24,7 @@ def main():
             plt.hist(time, bins=100)  # arguments are passed to np.histogram
             title = "Time distribution of route " + str(id_p)
             plt.title(title)
-            savepath = "Sp18/output/distribution_clean/" + str(id_p)
+            savepath = "distribution_clean_2/" + str(id_p)
             plt.savefig(savepath)
             print("saved to " + savepath)
             plt.close()
@@ -41,7 +41,7 @@ def main():
     plt.hist(time, bins=100)  # arguments are passed to np.histogram
     title = "Time distribution of route " + str(id_p)
     plt.title(title)
-    savepath = "Sp18/output/distribution_clean/" + str(id_p)
+    savepath = "distribution_clean_2/" + str(id_p)
     plt.savefig(savepath)
     print("saved to " + savepath)
     plt.close()
